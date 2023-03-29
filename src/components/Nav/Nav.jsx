@@ -15,6 +15,10 @@ export default function Nav(props) {
                 <button>Home</button>
             </NavLink>
             
+            <NavLink to="/favorites">
+                <button>Favorites</button>
+            </NavLink>
+            
             <SearchBar onSearch={props.onSearch}/>
 
         </div>
