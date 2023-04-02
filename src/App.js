@@ -1,4 +1,3 @@
-import './App.css';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import About from './components/About/About.jsx';
@@ -8,7 +7,7 @@ import Favorites from './components/Favorites/Favorites.jsx';
 import Form from './components/Form/Form.jsx';
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
-// import style from ".App.module.css";
+import style from './App.module.css';
 
 function App() {
    const [characters, setCharacters] = useState([]);
@@ -37,27 +36,27 @@ function App() {
    };
 
    //BASE DE DATOS LOGIN
-   const navigate = useNavigate();
-   const [access, setAccess] = useState(false);
-   const EMAIL = "w@w.com";
-   const PASSWORD = "12345678a";
+   // const navigate = useNavigate();
+   // const [access, setAccess] = useState(false);
+   // const EMAIL = "w@w.com";
+   // const PASSWORD = "12345678a";
    
-   function login(userData){
-      if (userData.email === EMAIL && userData.password === PASSWORD) {
-         setAccess(true);
-         navigate('/home');
-      } else {
-         alert ("No existe una cuenta con esos datos")
-      }
-   }
+   // function login(userData){
+   //    if (userData.email === EMAIL && userData.password === PASSWORD) {
+   //       setAccess(true);
+   //       navigate('/home');
+   //    } else {
+   //       alert ("No existe una cuenta con esos datos")
+   //    }
+   // }
    
-   useEffect(() => {
-      !access && navigate('/');
-   }, [access, navigate]);
+   // useEffect(() => {
+   //    !access && navigate('/');
+   // }, [access, navigate]);
 
 
    return (
-      <div className='App'>
+      <div className={style.app}>
          {window.location.pathname === "/" ? null : <Nav onSearch={onSearch} />}
 
          <Routes>
@@ -65,8 +64,8 @@ function App() {
             <Route path="/about" element={ <About/> } />
             <Route path="/favorites" element={ <Favorites/> } />
             <Route path="/detail/:id" element={ <Detail/>} />
-            <Route path="/" element={ <Form login={login}/> } />
-            <Route path="*" element={ <Navigate to="/" /> } />
+            {/* <Route path="/" element={ <Form login={login}/> } /> */}
+            {/* <Route path="*" element={ <Navigate to="/" /> } /> */}
          </Routes>
       </div>
    );

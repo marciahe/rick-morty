@@ -15,11 +15,13 @@ const rootReducer = (state = initialState, action) => {
             };
         case REMOVE_FAV:
             const actionPayload = parseInt(action.payload)
+            const removedFav = state.myFavorites.filter(
+                (char) => char.id !== actionPayload
+            );
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(
-                    (char) => char.id !== actionPayload
-                ),
+                myFavorites: removedFav,
+                allCharacters: removedFav,
             };
         case FILTER:
             const allCharsFiltered = 

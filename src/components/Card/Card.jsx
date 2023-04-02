@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import  { connect } from "react-redux";
+import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions.js"
 import { useEffect, useState } from "react";
 import style from "./Card.module.css";
@@ -27,38 +27,51 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, addFav
             setIsFav(true);
          }
       });
-   }, [myFavorites]);
+   }, [myFavorites, id]);
 
    return (
       <div className={style.container}>
-            {isFav ? (
-                  <button onClick={handleFavorite}>❤️</button>
-               ) : (
-                  <button onClick={handleFavorite}>🤍</button>
-               )
-            }
             <Link to={`/detail/${id}`}>
-               <img src={image} alt='' /> 
-               <h2>Name: {name}</h2>
+               <h2 className={style.charName}>{name}
+               <span className={style.status}>{status === 'Alive' ? '🟢' : status === 'Dead' ? '☠️' : '❓'}</span>
+               </h2>
+               
+               {/* <img src={image} alt='' />  */}
+               <div className={style.image} style={{backgroundImage: `url(${image})`}}>
+               </div>
+
+               <h3 className={style.species}>
+                  Species: {species} 
+                  <span className={style.gender}>
+                     <span>{gender === "Male" ? "🙍‍♂️" : gender === "Female" ? "🙍‍♀️" : gender === "Unknown" ? "❓" : "🤷"}</span>
+                     {gender}
+                  </span>
+               </h3>
+
+               <h3>Origin: {origin.name}</h3>
+
             </Link>  
-            <h2>Status: {status}</h2>
-            <h2>Species: {species}</h2>
-            <h2>Gender: {gender}</h2>
-            <h2>Origin: {origin.name}</h2>
-            <button onClick={() =>onClose(id)}>X</button>
+            <div className={style.actions}>
+               {isFav 
+                  ? (<button className={`${style.btn} ${style.fav}`} onClick={handleFavorite}>❤️</button>) 
+                  : (<button className={`${style.btn} ${style.fav}`} onClick={handleFavorite}>🤍</button>)
+               }
+               <h4 className={style.hidden}>#{id}</h4>
+               <button className={`${style.btn} ${style.close}`}  onClick={() =>onClose(id)}>🗑</button>
+            </div>
          </div>   
    );
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return{
+   return{
       addFav: (character) => {
          dispatch(addFav(character))
       },
       removeFav: (id) => {
          dispatch(removeFav(id))
       },
-    }
+   }
 };
 
 const mapStateToProps = (state) => {

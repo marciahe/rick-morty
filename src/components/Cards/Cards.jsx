@@ -1,10 +1,11 @@
 import Card from '../Card/Card';
+import style from './Cards.module.css';
 
 export default function Cards({ characters, onClose }) {
    return (
-      <div>
+      <div className={style.container}>
          {
-            characters.map((character) => {
+            characters.slice(0).reverse().map((character) => {
                return ( 
                   <Card 
                      key = {character.id}
