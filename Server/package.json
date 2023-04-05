@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for Rick & Morty app",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon ./src/index.js"
+  },
+  "keywords": [
+    "rick",
+    "and",
+    "morty",
+    "react",
+    "node",
+    "css",
+    "js"
+  ],
+  "author": "Marcia Hernández",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
