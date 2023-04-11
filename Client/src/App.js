@@ -7,6 +7,7 @@ import Favorites from './components/Favorites/Favorites.jsx';
 import Form from './components/Form/Form.jsx';
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import axios from 'axios';
 import style from './App.module.css';
 
 function App() {
@@ -36,9 +37,9 @@ function App() {
          characters.filter((char) => char.id !== id));
    };
 
-   //BASE DE DATOS LOGIN
-   // const navigate = useNavigate();
-   // const [access, setAccess] = useState(false);
+   // BASE DE DATOS LOGIN
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
    // const EMAIL = "w@w.com";
    // const PASSWORD = "12345678a";
    
@@ -50,6 +51,17 @@ function App() {
    //       alert ("No existe una cuenta con esos datos")
    //    }
    // }
+   
+   
+   function login(userData) {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
+   }
    
    // useEffect(() => {
    //    !access && navigate('/');
@@ -65,8 +77,8 @@ function App() {
             <Route path="/about" element={ <About/> } />
             <Route path="/favorites" element={ <Favorites/> } />
             <Route path="/detail/:id" element={ <Detail/>} />
-            {/* <Route path="/" element={ <Form login={login}/> } /> */}
-            {/* <Route path="*" element={ <Navigate to="/" /> } /> */}
+            <Route path="/" element={ <Form login={login}/> } />
+            <Route path="*" element={ <Navigate to="/" /> } />
          </Routes>
       </div>
    );

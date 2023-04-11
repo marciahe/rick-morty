@@ -8,14 +8,63 @@ body {
 
   /* background-image:url('../public/bg_rick_morty.jpeg'); */
   /* background-image:url('../public/bg_rick_morty.jpeg'); */
-  background-image:url('../public/rick-and-morty-portal.jpg');
+  /* background-image:url('../public/rick-and-morty-portal.jpg'); */
+  background-image:url('../public/bg_universe.webp');
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
+  background-attachment: fixed;
+  
 }
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  
+	background-size: 400% 400%;
+	animation: gradient 30s ease infinite;
+	height: 100vh;
+}
+
+#root {
+  background-image:url('../public/2.png');
+	animation: zoom 200s infinite;
+	background-size: 120% 120%;
+
+  background-repeat: repeat;
+  height: 100vh;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes zoom {
+	0% {
+    background-size: 60%;
+	}
+	50% {
+    background-size: 120%;
+	}
+	100% {
+    background-size: 60%;
+
+	}
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
