@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions.js"
 import { useEffect, useState } from "react";
+import axios from "axios";
 import style from "./Card.module.css";
 
 
-const Card = ({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites }) => {
+const Card = ({id, name, status, species, gender, origin, image, onClose, removeFav, myFavorites }) => {
    // const myFavorites = useSelector((state) => state.myFavorites)
 
    const [isFav, setIsFav] = useState(false);
 
-   
    const handleFavorite = () => {
       if (isFav) {
          setIsFav(false);
          removeFav(id);
       } else {
          setIsFav(true);
-         addFav({id, name, status, species, gender, origin, image, onClose, addFav, removeFav });
+         addFav({id, name, status, species, gender, origin, image });
       }
    }
    
@@ -36,7 +36,6 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, addFav
                <span className={style.status}>{status === 'Alive' ? '🟢' : status === 'Dead' ? '☠️' : '❓'}</span>
                </h2>
                
-               {/* <img src={image} alt='' />  */}
                <div className={style.image} style={{backgroundImage: `url(${image})`}}>
                </div>
 
@@ -59,7 +58,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, addFav
                <h4 className={style.hidden}>#{id}</h4>
                <button className={`${style.btn} ${style.close}`}  onClick={() =>onClose(id)}>🗑</button>
             </div>
-         </div>   
+      </div>   
    );
 };
 

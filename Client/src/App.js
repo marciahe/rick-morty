@@ -37,21 +37,8 @@ function App() {
          characters.filter((char) => char.id !== id));
    };
 
-   // BASE DE DATOS LOGIN
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   // const EMAIL = "w@w.com";
-   // const PASSWORD = "12345678a";
-   
-   // function login(userData){
-   //    if (userData.email === EMAIL && userData.password === PASSWORD) {
-   //       setAccess(true);
-   //       navigate('/home');
-   //    } else {
-   //       alert ("No existe una cuenta con esos datos")
-   //    }
-   // }
-   
    
    function login(userData) {
       const { email, password } = userData;
@@ -62,11 +49,6 @@ function App() {
          access && navigate('/home');
       });
    }
-   
-   // useEffect(() => {
-   //    !access && navigate('/');
-   // }, [access, navigate]);
-
 
    return (
       <div className={style.app}>

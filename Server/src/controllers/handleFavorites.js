@@ -1,9 +1,8 @@
 
-// import express from 'express'
 let myFavorites = [];
- 
+
 const postFav = (req, res) => {
-    const newFav = req.body.character;
+    const newFav = req.body;
     myFavorites.push(newFav);
 
     return res
@@ -19,5 +18,7 @@ const deleteFav = (req, res) => {
         .status(200)
         .json(myFavorites);
 }
+
+
 
 module.exports = {postFav, deleteFav}
