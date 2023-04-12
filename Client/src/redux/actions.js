@@ -4,30 +4,38 @@ export const REMOVE_FAV = "REMOVE_FAV";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 
-// ACTION | addFav
 export const addFav = (character) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav';
-    return (dispatch) => {
-        axios.post(endpoint, character).then(({ data }) => {
-            return dispatch({
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, character);
+            dispatch({
                 type: 'ADD_FAV',
                 payload: data,
-            });
-        });
-    };
+            })
+        } catch (error) {
+            console.error(error.message)
+            alert("Hubo un error al guardar tu favorito. Intenta de nuevo.")
+        }
+    }
 };
 
-// ACTION | removeFav
 export const removeFav = (id) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
-    return (dispatch) => {
-        axios.delete(endpoint).then(({ data }) => {
-            return dispatch({
+
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.delete(endpoint);
+            dispatch({
                 type: 'REMOVE_FAV',
                 payload: data,
             }); 
-        });
-    };
+        } catch (error) {
+            console.error(error.message)
+            alert("Hubo un error al guardar tu favorito. Intenta de nuevo.")
+        }
+    }
 };
 
 export const filterCards = (gender) => {

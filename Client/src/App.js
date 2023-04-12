@@ -13,24 +13,29 @@ import style from './App.module.css';
 function App() {
    const [characters, setCharacters] = useState([]);
 
-   const onSearch = (id) => {
+   const onSearch = async (id) => {
       // const URL_BASE = "https://rickandmortyapi.com/api";
       const URL_BASE = "http://localhost:3001/rickandmorty";
       
-      if (characters.some((char) => char.id === id)){
+      if (characters.some((char) => char.id == id)){
          return alert("Ya agregaste ese personaje")
       }
+      
+      try {
+         const search = await axios.get(`${URL_BASE}/character/${id}`)
+         const data = search.data;
+         if(data.name){
+            setCharacters((oldChars) => [...oldChars, data]);
+         }else{
+            alert("No se encontró a ese personaje. Intenta de nuevo.")
+         }
+      } catch (error) {
+         alert("No se encontró a ese personaje. Intenta de nuevo.")
+         console.log(error.message)
+      }
 
-      fetch(`${URL_BASE}/character/${id}`)
-         .then(response=>response.json())
-         .then(data=>{
-            if(data.name){
-               setCharacters((oldChars) => [...oldChars, data]);
-            }else{
-               alert("No se encontró a ese personaje. Intenta de nuevo.")
-            }
-         });
    };
+
 
    const onClose = (id) => {
       setCharacters(
