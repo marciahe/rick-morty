@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions.js"
 import { useEffect, useState } from "react";
-import axios from "axios";
 import style from "./Card.module.css";
 
 
-const Card = ({id, name, status, species, gender, origin, image, onClose, removeFav, myFavorites }) => {
+const Card = ({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites }) => {
    // const myFavorites = useSelector((state) => state.myFavorites)
 
    const [isFav, setIsFav] = useState(false);
@@ -17,7 +16,7 @@ const Card = ({id, name, status, species, gender, origin, image, onClose, remove
          removeFav(id);
       } else {
          setIsFav(true);
-         addFav({id, name, status, species, gender, origin, image });
+         addFav({id, name, status, species, gender, origin, image, onClose, addFav, removeFav });
       }
    }
    
