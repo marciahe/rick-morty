@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import Card from '../Card/Card.jsx';
 import { filterCards, orderCards } from '../../redux/actions.js'
 import { useState } from "react";
+import styles from './Favorites.module.css';
+
 
 const Favorites = () => {
     const favorites = useSelector(state=>state.myFavorites);
@@ -18,8 +20,8 @@ const Favorites = () => {
     }
 
     return(
-        <>
-            <h1> Favorites </h1>
+        <div className={styles.favs}>
+            <h1> ❤️ Tus favoritos </h1>
             <select onChange={handleOrder} >
                 <option disabled='disabled'>Ordena por...</option>
                 <option value="A">Ascendente</option>
@@ -32,21 +34,24 @@ const Favorites = () => {
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">Unknown</option>
             </select>
-            {favorites.map((character) => {
-                return(
-                    <Card 
-                        key = {character.id}
-                        id = {character.id}
-                        name = {character.name}
-                        status = {character.status}
-                        species = {character.species}
-                        gender = {character.gender}
-                        origin = {character.origin}
-                        image = {character.image}
-                    />
-                );
-            })}
-        </>
+            <div className={styles.favsContainer}>
+
+                {favorites.map((character) => {
+                    return(
+                        <Card 
+                            key = {character.id}
+                            id = {character.id}
+                            name = {character.name}
+                            status = {character.status}
+                            species = {character.species}
+                            gender = {character.gender}
+                            origin = {character.origin}
+                            image = {character.image}
+                            />
+                    );
+                })}
+            </div>
+        </div>
     );
 };
 

@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px 10px 30px;
+}
+
+.nav .menu{
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu-search{
+    display: flex;
+    width: 350px;
+    justify-content: right;
+}
+
+.nav .logo{
+    width: 180px;
+}
+
+.nav input {
+    margin-right: 6px;
+    width: 100px;
+}

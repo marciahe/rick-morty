@@ -6,9 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* background-image:url('../public/bg_rick_morty.jpeg'); */
-  /* background-image:url('../public/bg_rick_morty.jpeg'); */
-  /* background-image:url('../public/rick-and-morty-portal.jpg'); */
   background-image:url('../public/bg_universe.webp');
   
   background-size: cover;
@@ -27,6 +24,7 @@ body {
 	background-size: 400% 400%;
 	animation: gradient 30s ease infinite;
 	height: 100vh;
+  background-attachment: fixed;
 }
 
 #root {
@@ -36,6 +34,8 @@ body {
 
   background-repeat: repeat;
   height: 100vh;
+  background-attachment: fixed;
+  overflow-y: auto;
 
 }
 

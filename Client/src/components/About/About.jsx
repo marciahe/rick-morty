@@ -13,10 +13,6 @@ const image = "https://i.imgur.com/nGsJ3Y0.png"
 export default function About (){
     return (
         <div className={style.container}>
-                
-
-
-
             <h2 className={style.charName}>{name}
             <span className={style.status}>{status === 'Alive' ? '🟢' : status === 'Dead' ? '☠️' : '❓'}</span>
             </h2>
@@ -25,23 +21,14 @@ export default function About (){
 
             <h3 className={style.species}>
                 Species: {species} 
-                <span className={style.gender}>
-                    <span>{gender === "Male" ? "🙍‍♂️" : gender === "Female" ? "🙍‍♀️" : gender === "Unknown" ? "❓" : "🤷"}</span>
-                    {gender}
-                </span>
             </h3>
 
-            <h3>Origin: {origin.name}</h3>
+            <h3 className="about-gender">
+                <span>{gender === "Female" ? "🙍‍♀️" : gender === "Unknown" ? "❓" : "🤷"}</span>
+                {gender}
+            </h3>
 
-
-            <div className={style.actions}>
-                {/* {isFav 
-                    ? (<button className={`${style.btn} ${style.fav}`} onClick={handleFavorite}>❤️</button>) 
-                    : (<button className={`${style.btn} ${style.fav}`} onClick={handleFavorite}>🤍</button>)
-                } */}
-                {/* <h4 className={style.hidden}>#{id}</h4> */}
-                {/* <button className={`${style.btn} ${style.close}`}  onClick={() =>onClose(id)}>🗑</button> */}
-            </div>
+            <h3>Origin: Guadalajara, México </h3>
 
         </div>
 

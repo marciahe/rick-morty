@@ -5,7 +5,7 @@ import Detail from './components/Detail/Detail.jsx';
 import Favorites from './components/Favorites/Favorites.jsx';
 // import Error404 from './components/Error404/Error404.jsx';
 import Form from './components/Form/Form.jsx';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import axios from 'axios';
 import style from './App.module.css';

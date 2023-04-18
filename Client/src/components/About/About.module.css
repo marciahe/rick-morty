@@ -3,8 +3,8 @@
 
 .container{
     width: 90%;
-    max-width: 800px;
-    height: 700px;
+    max-width: 330px;
+    height: 500px;
     max-height: 80%;
     font-family: 'Roboto Condensed', Helvetica, sans-serif;
     font-weight: 300;
@@ -20,6 +20,7 @@
     background: rgba(255,255,255,0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    margin: 50px auto;
 }
 
 @keyframes fadeIn {
@@ -119,14 +120,12 @@ h3:visited{
    color: #333;
 }
 
-.gender {
+.about-gender {
    padding-right: 6px;
-   position: relative;
    bottom: 5px;
 }
-.gender span{
+.about-gender span{
    padding-right: 3px;
-   position: relative;
 }
 .status{
    /* background: rgb(2,0,36); */

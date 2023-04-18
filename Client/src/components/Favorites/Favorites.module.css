@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+.favsContainer{
+    display:flex;
+    margin: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.favs h1{
+    font-family: 'Schoolbell', Helvetica, sans-serif;
+}
+
+.favs select{
+    padding: 5px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin: 0 10px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: 5px solid #fff;
+}
