@@ -4,10 +4,16 @@ import style from "./Cards.module.css";
 export default function Cards({ characters, onClose }) {
   if (characters.length === 0) {
     return (
-      <div className={style.empty}>
-         
-        <p>¡Agrega un personaje ingresando un número del 1 al 827!</p>
-      </div>
+      <>
+        <div className={style.empty}>
+          <p>¡Agrega un personaje ingresando un número del 1 al 827! 👆</p>
+        </div>
+        <img
+          className={style.imgEmpty}
+          src="https://i.giphy.com/media/6Y6Q14uNgJzV1ev2rh/giphy.webp"
+          alt="Ingresa un número en el buscador"
+        />
+      </>
     );
   }
   return (

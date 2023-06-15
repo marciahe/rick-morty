@@ -58,13 +58,13 @@ function App() {
 
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/" element={<Form login={login} />} />
+        {/* <Route path="/" element={<Form login={login} />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

@@ -11,8 +11,11 @@
     sans-serif;
   background-color: white;
   border-radius: 8px;
-  padding: 10px 30px;
+  padding: 4px 30px;
   width: fit-content;
-  margin: 50px auto;
+  margin: 10px auto;
   font-weight: 600;
+}
+.imgEmpty {
+  max-height: 60vh;
 }
