@@ -54,7 +54,7 @@ function App() {
 
   return (
     <div className={style.app}>
-      {window.location.pathname === "/" ? null : <Nav onSearch={onSearch} />}
+      <Nav onSearch={onSearch} />
 
       <Routes>
         <Route
@@ -65,7 +65,7 @@ function App() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/detail/:id" element={<Detail />} />
         {/* <Route path="/" element={<Form login={login} />} /> */}
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="home" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
